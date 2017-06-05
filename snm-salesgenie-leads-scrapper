@@ -1,0 +1,58 @@
+var b_name = document.querySelectorAll(".BusinessName a");
+
+var executive_name = document.querySelectorAll("#resultsGridView tbody tr td:nth-child(2)");
+
+var executive_title = document.querySelectorAll("#resultsGridView tbody tr td:nth-child(2)");
+
+var phone = document.querySelectorAll("#resultsGridView tbody tr td:nth-child(3)");
+
+var street_address = document.querySelectorAll("#resultsGridView tbody tr td:nth-child(4)");
+
+var city = document.querySelectorAll("#resultsGridView tbody tr td:nth-child(5)");
+
+var province = document.querySelectorAll("#resultsGridView tbody tr td:nth-child(6)");
+
+var postal_code = document.querySelectorAll("#resultsGridView tbody tr td:nth-child(7)");
+
+var n;
+
+var length = b_name.length;
+
+var leads = []
+		
+var serial = 0;
+
+for ( n = 0; n < length ; n++ ) {
+					
+	filtered_name = String("\"" + b_name[serial].innerText + "\"");
+	filtered_ex_name = String("\"" + executive_name[serial].innerText + "\"");
+	filtered_phone = String("\"" + phone[serial].innerText + "\"");
+	filtered_st_address = String("\"" + street_address[serial].innerText + "\"");
+	filtered_city = String("\"" + city[serial].innerText + "\"");
+	filtered_province = String("\"" + province[serial].innerText + "\"");
+	filtered_postal_code = String("\"" + postal_code[serial].innerText + "\"");
+
+	leads.push([filtered_name,
+							filtered_ex_name,
+							filtered_phone,
+							filtered_st_address,
+							filtered_city,
+							filtered_province,
+							filtered_postal_code]);
+			
+	var csv = '"Business Name";"Executive Name";"Phone";"Street Address";"City";"Province;";"Postal Code"\n';
+						 
+    leads.forEach(function(row) {
+            csv += row.join(';');
+            csv += "\n";
+    });	
+    
+	serial++;
+	
+}
+
+var hiddenElement = document.createElement('a');
+    hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+    hiddenElement.target = '_blank';
+    hiddenElement.download = 'sales-genie-leads.csv';
+    hiddenElement.click();  
