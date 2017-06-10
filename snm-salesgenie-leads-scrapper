@@ -2,17 +2,17 @@ var b_name = document.querySelectorAll(".BusinessName a");
 
 var executive_name = document.querySelectorAll("#resultsGridView tbody tr td:nth-child(2)");
 
-var executive_title = document.querySelectorAll("#resultsGridView tbody tr td:nth-child(2)");
+var executive_title = document.querySelectorAll("#resultsGridView tbody tr td:nth-child(3)");
 
-var phone = document.querySelectorAll("#resultsGridView tbody tr td:nth-child(3)");
+var phone = document.querySelectorAll("#resultsGridView tbody tr td:nth-child(4)");
 
-var street_address = document.querySelectorAll("#resultsGridView tbody tr td:nth-child(4)");
+var street_address = document.querySelectorAll("#resultsGridView tbody tr td:nth-child(5)");
 
-var city = document.querySelectorAll("#resultsGridView tbody tr td:nth-child(5)");
+var city = document.querySelectorAll("#resultsGridView tbody tr td:nth-child(6)");
 
-var province = document.querySelectorAll("#resultsGridView tbody tr td:nth-child(6)");
+var province = document.querySelectorAll("#resultsGridView tbody tr td:nth-child(7)");
 
-var postal_code = document.querySelectorAll("#resultsGridView tbody tr td:nth-child(7)");
+var postal_code = document.querySelectorAll("#resultsGridView tbody tr td:nth-child(8)");
 
 var n;
 
@@ -26,6 +26,7 @@ for ( n = 0; n < length ; n++ ) {
 					
 	filtered_name = String("\"" + b_name[serial].innerText + "\"");
 	filtered_ex_name = String("\"" + executive_name[serial].innerText + "\"");
+	filtered_ex_title = String("\"" + executive_title[serial].innerText + "\"");
 	filtered_phone = String("\"" + phone[serial].innerText + "\"");
 	filtered_st_address = String("\"" + street_address[serial].innerText + "\"");
 	filtered_city = String("\"" + city[serial].innerText + "\"");
@@ -33,14 +34,15 @@ for ( n = 0; n < length ; n++ ) {
 	filtered_postal_code = String("\"" + postal_code[serial].innerText + "\"");
 
 	leads.push([filtered_name,
-							filtered_ex_name,
-							filtered_phone,
-							filtered_st_address,
-							filtered_city,
-							filtered_province,
-							filtered_postal_code]);
+		    filtered_ex_name,
+		    filtered_ex_title,
+		    filtered_phone,
+		    filtered_st_address,
+		    filtered_city,
+		    filtered_province,
+		    filtered_postal_code]);
 			
-	var csv = '"Business Name";"Executive Name";"Phone";"Street Address";"City";"Province;";"Postal Code"\n';
+	var csv = '"Business Name";"Executive Name";"Executive Title";"Phone";"Street Address";"City";"Province;";"Postal Code"\n';
 						 
     leads.forEach(function(row) {
             csv += row.join(';');
@@ -56,3 +58,4 @@ var hiddenElement = document.createElement('a');
     hiddenElement.target = '_blank';
     hiddenElement.download = 'sales-genie-leads.csv';
     hiddenElement.click();  
+
