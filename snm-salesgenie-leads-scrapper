@@ -18,12 +18,15 @@ var n;
 
 var length = b_name.length;
 
-var leads = []
+var leads = [];
 		
 var serial = 0;
 
 for ( n = 0; n < length ; n++ ) {
-					
+
+	
+
+	executive_name[serial].click();
 	filtered_name = String("\"" + b_name[serial].innerText + "\"");
 	filtered_ex_name = String("\"" + executive_name[serial].innerText + "\"");
 	filtered_ex_title = String("\"" + executive_title[serial].innerText + "\"");
@@ -32,6 +35,12 @@ for ( n = 0; n < length ; n++ ) {
 	filtered_city = String("\"" + city[serial].innerText + "\"");
 	filtered_province = String("\"" + province[serial].innerText + "\"");
 	filtered_postal_code = String("\"" + postal_code[serial].innerText + "\"");
+	
+	var site = document.querySelectorAll("#qvsMainWebSite");
+	
+	filtered_site = String("\"" + site[0].innerHTML + "\"");
+	
+	
 
 	leads.push([filtered_name,
 		    filtered_ex_name,
@@ -40,22 +49,26 @@ for ( n = 0; n < length ; n++ ) {
 		    filtered_st_address,
 		    filtered_city,
 		    filtered_province,
-		    filtered_postal_code]);
+		    filtered_postal_code,
+		    filtered_site]);
 			
-	var csv = '"Business Name";"Executive Name";"Executive Title";"Phone";"Street Address";"City";"Province;";"Postal Code"\n';
+	var csv = '"Business Name";"Executive Name";"Executive Title";"Phone";"Street Address";"City";"Province";"Postal Code";"Website"\n';
 						 
     leads.forEach(function(row) {
             csv += row.join(';');
             csv += "\n";
     });	
     
-	serial++;
+	serial = serial + 1;
+
+
+	
 	
 }
 
 var hiddenElement = document.createElement('a');
     hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
     hiddenElement.target = '_blank';
-    hiddenElement.download = 'sales-genie-leads.csv';
+    hiddenElement.download = 'snm-salesgenie-leads.csv';
     hiddenElement.click();  
 
