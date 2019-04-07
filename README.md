@@ -1,4 +1,4 @@
-# SNM-Salesgenie-Leads-Scrapper
+# R47-Salesgenie-Leads-Scrapper
 Scrapping Script for collectiong leads informations from the search result page and saving to a CSV File.
 
 # 
@@ -7,12 +7,7 @@ Scrapping Script for collectiong leads informations from the search result page 
 
 # 
 
+
 # Contact Us For Help/Reporting Bugs:
-Facebook Page: https://facebook.com/serviceandmaintenance.net
-
-Website: https://serviceandmaintenance.net
-
-Email: shabujmona@gmail.com , info@serviceandmaintenance.net
-
- 
-  ![N|Solid](https://snmhosting.com/wp-content/uploads/2016/10/snm-animated-ad.gif)
+Facebook Facebook: https://www.facebook.com/rakib47.underground
+Email: rakibuzzaman47@gmail.com
